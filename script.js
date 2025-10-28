@@ -111,7 +111,7 @@ function GameDisplay() {
                 guess.disabled = true;
                 startGame.disabled = true;
                 // alert("Game Over! You've passed 5 guesses");
-                statusUpdate.textContent = "Game Over! You've reached 6 guesses";
+                statusUpdate.textContent = `Game Over! You've reached 6 guesses. My number was ${game.secretNumber}.`;
                 triesLeft.textContent = "Click 'Reset Game' to start a new game.";
                 statusUpdate.classList.remove("hint");
                 statusUpdate.classList.add("loose");

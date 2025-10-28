@@ -75,6 +75,8 @@ input:focus {
 .status, .tries {
   transition: all 0.3s ease;
   font-weight: bold;
+  text-wrap: pretty;
+  text-align: center;
 }
 
 .win {
