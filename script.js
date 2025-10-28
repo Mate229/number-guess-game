@@ -1,5 +1,5 @@
 function GameNumber() {
-    const gameNumber = Math.floor(Math.random() * 2) + 1;
+    const gameNumber = Math.floor(Math.random() * 100) + 1;
 
     const getNumber = () => gameNumber;
 
@@ -50,14 +50,14 @@ function GameController() {
             if (number < secretNumber) {
                 // alert("Higher");
                 statusUpdate.classList.add("hint");
-                triesLeft.textContent = `You have ${5 - guessCount - 1} trials left.`
+                triesLeft.textContent = `You have ${6 - guessCount - 1} trials left.`
                 statusUpdate.textContent = "Higher"
                 numberInput.focus();
                 numberInput.value = "";
                 guessCount++;
             } else {
                 // alert("Lower");
-                triesLeft.textContent = `You have ${5 - guessCount - 1} trials left.`
+                triesLeft.textContent = `You have ${6 - guessCount - 1} trials left.`
                 statusUpdate.textContent = "Lower"
                 statusUpdate.classList.add("hint");
                 numberInput.focus();
@@ -80,7 +80,7 @@ const statusUpdate = document.querySelector(".status");
 statusUpdate.textContent = "Click 'Start Game' to start."
 
 const triesLeft = document.querySelector(".tries");
-triesLeft.textContent = "You have 5 trials. Good Luck!"
+triesLeft.textContent = "You have 6 trials. Good Luck!"
 
 const numberInput = document.querySelector("#numberInput");
 const guess = document.querySelector(".guess");
@@ -98,7 +98,7 @@ function GameDisplay() {
 
         game.guessNumber(getUserNumber().userNumber);
 
-        if (guessCount === 5) {
+        if (guessCount === 6) {
             if(getUserNumber().userNumber === game.secretNumber) {
                 // alert("Congrats! You guessed it");
                 statusUpdate.textContent = "Congrats! You guessed it";
@@ -111,7 +111,7 @@ function GameDisplay() {
                 guess.disabled = true;
                 startGame.disabled = true;
                 // alert("Game Over! You've passed 5 guesses");
-                statusUpdate.textContent = "Game Over! You've passed 5 guesses";
+                statusUpdate.textContent = "Game Over! You've reached 6 guesses";
                 triesLeft.textContent = "Click 'Reset Game' to start a new game.";
                 statusUpdate.classList.remove("hint");
                 statusUpdate.classList.add("loose");
@@ -140,5 +140,5 @@ startGame.addEventListener("click", () => {
 
 resetGame.addEventListener("click", () => {
     window.location.reload();
-})
+});
 
